@@ -1,0 +1,24 @@
+.dashboard__devices {
+    display: grid;
+    grid-template-columns: repeat(6, calc((100% / 6) - (10px * 5 / 6)));
+    grid-auto-rows: 1fr;
+    grid-gap: 10px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dashboard__device {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, .06);
+    border-radius: 40px;
+    padding: 20px;
+    hyphens: auto;
+    aspect-ratio: 1;
+}
+
+.dashboard__device-param {
+    margin-top: 8px;
+}
