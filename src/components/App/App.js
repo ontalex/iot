@@ -1,5 +1,6 @@
 import './App.css';
 import React from "react";
+
 import Auth from '../Auth/Auth';
 import Dashboard from '../Dashboard/Dashboard';
 
@@ -14,7 +15,7 @@ class App extends React.Component {
       authToken: authToken,
       authError: null
     };
-
+    
     this.onAuthTokenChange = this.onAuthTokenChange.bind(this);
     this.onAuthTokenError = this.onAuthTokenError.bind(this);
   }
