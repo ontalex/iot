@@ -8,7 +8,7 @@ class Device extends React.Component {
         this.state = {
             status: this.getDeviceStatus(this.props.device),
             room: this.getDeviceRoom(this.props.device),
-            isOn: this.props
+            isOn: this.getDeviceStatus(this.props.device),
         };
     }
 
@@ -25,7 +25,7 @@ class Device extends React.Component {
             device.capabilities &&
             device.capabilities.at(-1)?.type === "devices.capabilities.on_off"
         ) {
-            return device.capabilities.at(-1).state.value ? "On" : "Off";
+            return device.capabilities.at(-1).state.value;
         }
     }
 
@@ -43,8 +43,6 @@ class Device extends React.Component {
             }
         }
     }
-
-
 
     newJsonDeviseStatus(device, newState, typeAction) {
         return {
@@ -89,15 +87,15 @@ class Device extends React.Component {
                 }
             })
             .then((res) => {
-                
                 console.log("Res From API (device)", res);
-
-                this.onChangeDeviceStatus(device, newState, this.props.index)
+                console.log("IS ON DEVICE", this.state.isOn);
 
                 this.setState({
                     isOn: newState.value,
-                    status: this.getDeviceStatus(device)
-                })
+                    status: this.getDeviceStatus(device),
+                });
+
+                this.onChangeDeviceStatus(device, newState, this.props.index);
             });
     }
 
@@ -107,22 +105,17 @@ class Device extends React.Component {
                 <div className="dashboard__device-param">
                     <b>Имя:</b> {this.props.device.name}
                 </div>
-                {this.state.status ? (
-                    // Если присутствует какой-либо статут - значит можно выкючить или включить => нужна кнопка
-                    <div className="dashboard__device-event">
-                        <button
-                            onClick={() =>
-                                this.onChangeStatusDevice(this.props.device)
-                            }
-                        >
-                            {this.state.isOn
-                                ? "Выключить"
-                                : "Включить"}
-                        </button>
-                        <div className="dashboard__device-param">
-                            <b>Статус (включено):</b> {this.state.status}
-                        </div>
-                    </div>
+                {this.props.device.capabilities.length ? (
+                    <button
+                        className={`dashboard__device-event dashboard__device-${
+                            this.state.isOn ? "on" : "off"
+                        }`}
+                        onClick={() =>
+                            this.onChangeStatusDevice(this.props.device)
+                        }
+                    >
+                        {/* {this.state.isOn ? "Вык" : "Вкл"} */}
+                    </button>
                 ) : (
                     ""
                 )}
