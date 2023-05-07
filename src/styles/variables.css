@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+
+:root {
+    --header-color: #E49EF6;
+    --bg: #131313;
+    --bg-input: #202020;
+    --border-input: 2px solid #8B337D;
+    --font-color: #fff;
+    --error-color: red;
+    --input-color: #b9b9b9;
+    --index: calc(1vw + 1vh);
+    
+    --bg-btn-light: #B725A8;
+    --bg-btn-gray: #343434;
+
+    --bg-btn-light--hover: #8a1d7f;
+    --bg-btn-gray--hover: #212121;
+
+    
+}
