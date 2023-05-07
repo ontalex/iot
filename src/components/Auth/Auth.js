@@ -13,8 +13,8 @@ class Auth extends React.Component {
     }
 
     /*
-        Обработчик нажатия "сохранить". Записывает токен в localStorage
-    */
+          Обработчик нажатия "сохранить". Записывает токен в localStorage
+      */
     onSave() {
         if (this.state.authToken) {
             localStorage.authToken = this.state.authToken;
@@ -39,25 +39,26 @@ class Auth extends React.Component {
                 ) : (
                     ""
                 )}
-                <a
-                    href={authUrl}
-                    className="auth__get-token"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    Получить токен
-                </a>
-                <div className="auth_form">
-                    <input
-                        className="auth__input"
-                        type="text"
-                        value={this.state.authToken}
-                        onChange={this.onChange}
-                        placeholder="Введите токен"
-                    />
+                <h1 className="auth_header">Авторизация</h1>
+                <input
+                    type="text"
+                    placeholder="Введите ваш токен"
+                    value={this.state.authToken}
+                    onChange={this.onChange}
+                    className="auth__input"
+                />
+                <div className="btn_box">
                     <button className="auth__save" onClick={this.onSave}>
-                        Сохранить
+                        <span>Войти</span>
                     </button>
+                    <a
+                        href={authUrl}
+                        className="auth__get-token"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <span>Получить</span>
+                    </a>
                 </div>
             </div>
         );

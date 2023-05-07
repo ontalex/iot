@@ -1,4 +1,6 @@
+@import url("./styles/variables.css");
+
 body {
   margin: 0;
-  background-color: #fff;
+  background-color: var(--bg);
 }

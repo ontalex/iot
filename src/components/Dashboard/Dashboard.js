@@ -1,3 +1,4 @@
+import { getByTitle } from "@testing-library/react";
 import Device from "../Device/Device";
 import "./Dashboard.css";
 import React from "react";
@@ -84,6 +85,11 @@ class Dashboard extends React.Component {
         });
     }
 
+    // Очиститель кеш (авторизации)
+    rerunAuth() {
+        localStorage.clear();
+    }
+
     /*
     Отрисовщик списка устройств
   */
@@ -105,20 +111,32 @@ class Dashboard extends React.Component {
 
     render() {
         let content = "";
-
+        
         if (this.state.loadingIotData) {
             // Загрузка
-            return <div className="dashboard__loader">Loading...</div>;
+            return (<div className="dashboard__loader">
+                Loading...
+            </div>);
         } else if (this.state.iotDataError) {
             // Ошибка загрузки
             return (
                 <div className="dashboard__error">
-                    Ошибка получения данных: {this.state.iotDataError}
+                    <p>Ошибка получения данных: {this.state.iotDataError}</p>
+                    <button className="dashboard_rerun" onClick={this.rerunAuth}><span>Сброс</span></button>
                 </div>
             );
         } else if (this.state.iotData) {
             // Отрисовка
-            return this.renderDashboard();
+            return (
+                <div>
+                    <button className="dashboard_rerun" onClick={this.rerunAuth}><span>Сброс</span></button>
+                    {this.renderDashboard()}
+                </div>
+            );
+        } else if (this.state.iotData.devices.length === 0) {
+            return (
+                <div className="dashboard_"></div>
+            )
         }
 
         return <div className="dashboard">{content}</div>;

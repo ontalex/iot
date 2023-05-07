@@ -1,67 +1,84 @@
+@import url(../../styles/variables.css);
+
 .auth {
-    width: 100vw;
+    max-width: 400px;
     height: 100vh;
     box-sizing: border-box;
 
+    margin: 0 auto;
+
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+
+    flex-direction: column; 
+    justify-content: center; 
     align-items: center;
 
     gap: 32px;
 }
 
-.auth__get-token {
-    padding: 12px 16px;
-
-    background-color: #3a3b3d;
-
-    color: aliceblue;
-    text-decoration: none;
-
-    font-family: sans-serif;
-
-    border-radius: 6px;
+.auth_header {
+    color: var(--header-color);
+    font-family: "Roboto", sans-serif;
+    /* margin: 0px 32px; */
 }
 
-.auth_form {
+.btn_box {
+    width: 320px;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 8px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
 }
+
 
 
 .auth__error {
     color: red;
-    font-size: 24px;
-    font-family: sans-serif;
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    background-color: rgba(165, 42, 42, 0.19);
+    border-radius: 8px;
+    padding: 16px;
+    border: 3px solid brown;
+}
+
+.auth__get-token, .auth__save {
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: var(--font-color);
+    text-decoration: none;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+}
+
+.auth__get-token {
+    background: var(--bg-btn-gray);
+    text-align: center;
 }
 
 .auth__save {
-    width: 320px;
+    background: var(--bg-btn-light);
+}
 
-    padding: 12px 16px;
-
-    background-color: #3a3b3d;
-
-    color: aliceblue;
-    text-decoration: none;
-
-    font-family: sans-serif;
-    font-size: 16px;
-
-    border-radius: 6px;
-    border: 2px solid gray;
+.auth__get-token:hover {
+    background: var(--bg-btn-gray--hover);
+}
+.auth__save:hover {
+    background: var(--bg-btn-light--hover);
 }
 
 .auth__input {
-    width: 320px;
-    font-family: sans-serif;
-    padding: 8px;
+    background: var(--bg-input);
+    border: var(--border-input);
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: var(--input-color);
+
+    font-family: "Roboto", sans-serif;
     font-size: 16px;
-    background-color: #3a3b3d;
-    border: 2px solid gray;
-    border-radius: 4px;
-    color: white;
+
+    width: 320px;
+
     box-sizing: border-box;
 }
