@@ -1,5 +1,5 @@
-import { getByTitle } from "@testing-library/react";
 import Device from "../Device/Device";
+import Menu from "../Menu/Menu";
 import "./Dashboard.css";
 import React from "react";
 
@@ -75,6 +75,7 @@ class Dashboard extends React.Component {
         this.props.onAuthTokenError(err);
     }
 
+    // измение статуса включения и выключения устроства
     onChangeDeviceStatus(device, stateDevice, index) {
         let changedIotData = this.state.iotData;
 
@@ -129,7 +130,7 @@ class Dashboard extends React.Component {
             // Отрисовка
             return (
                 <div>
-                    <button className="dashboard_rerun" onClick={this.rerunAuth}><span>Сброс</span></button>
+                    {/* TODO: Добавить кнопку переподгрузки данных об устройствах */}
                     {this.renderDashboard()}
                 </div>
             );

@@ -1,15 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
-
 :root {
+    --scale_index: calc(1vw + 1vh);
+
     --header-color: #E49EF6;
     --bg: #131313;
     --bg-input: #202020;
     --border-input: 2px solid #8B337D;
-    --font-color: #fff;
+    --font-color: #ffffff;
+    --color-card-header: #fff;
+    --color-card-about: #FFFFFFB2;
+    
     --error-color: red;
     --input-color: #b9b9b9;
-    --index: calc(1vw + 1vh);
     
     --bg-btn-light: #B725A8;
     --bg-btn-gray: #343434;
@@ -17,5 +20,10 @@
     --bg-btn-light--hover: #8a1d7f;
     --bg-btn-gray--hover: #212121;
 
-    
+    --bg-card: #1E1E1E;
+    --bg-bar: #1C1C1C;
+
+    --bg-profile: #ffffff;
+    --bg-icon--disable: #A6A6A6;
+    --bg-icon--active: #eab3f8;
 }

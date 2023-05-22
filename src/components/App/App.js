@@ -3,6 +3,7 @@ import React from "react";
 
 import Auth from '../Auth/Auth';
 import Dashboard from '../Dashboard/Dashboard';
+import Menu from '../Menu/Menu';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,11 +14,13 @@ class App extends React.Component {
     this.state = {
       auth: Boolean(authToken),
       authToken: authToken,
-      authError: null
+      authError: null,
+      openSection: "dashboard" //or "profile"
     };
     
     this.onAuthTokenChange = this.onAuthTokenChange.bind(this);
     this.onAuthTokenError = this.onAuthTokenError.bind(this);
+    this.onChangeWindow = this.onChangeWindow.bind(this);
   }
 
   /*
@@ -41,14 +44,32 @@ class App extends React.Component {
     });
   }
 
+  onChangeWindow(window) {
+    this.setState({
+      openSection: window
+    })
+
+    // TODO: Пробросить функцию до меню и использовать её по нажатию кнопки
+  }
+
   render() {
-    if (this.state.auth) {
+    if (this.state.auth && this.state.openSection === "dashboard") {
       return (
-        <Dashboard
-          authToken={this.state.authToken}
-          onAuthTokenError={this.onAuthTokenError}
-        />
+        <div className='window'>
+          <Menu onChangeWindow={this.onChangeWindow}/>
+          <Dashboard
+            authToken={this.state.authToken}
+            onAuthTokenError={this.onAuthTokenError}
+          />
+        </div>
       );
+    } else if (this.state.auth && this.state.openSection === "profile") {
+      return (
+        <div className='window'>
+          <Menu onChangeWindow={this.onChangeWindow}/>
+          <p>Profile Board</p>
+        </div>
+      )
     } else {
       return (
         <Auth 

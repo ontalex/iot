@@ -1,6 +1,8 @@
 import React from "react";
 import "./Device.css";
 
+import "../../styles/variables.css"
+
 class Device extends React.Component {
     constructor(props) {
         super(props);
@@ -103,7 +105,7 @@ class Device extends React.Component {
         return (
             <div className="device_card">
                 <div className="dashboard__device-param">
-                    <b>Имя:</b> {this.props.device.name}
+                    <b>{this.props.device.name}</b>
                 </div>
                 {this.props.device.capabilities.length ? (
                     <button
@@ -119,7 +121,7 @@ class Device extends React.Component {
                 ) : (
                     ""
                 )}
-                <div className="dashboard__device-param">
+                {/* <div className="dashboard__device-param">
                     <b>Тип:</b>{" "}
                     {this.props.device.type.replace("devices.types.", "")}
                 </div>
@@ -129,7 +131,7 @@ class Device extends React.Component {
                     </div>
                 ) : (
                     ""
-                )}
+                )} */}
             </div>
         );
     }

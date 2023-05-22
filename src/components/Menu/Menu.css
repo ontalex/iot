@@ -1,0 +1,27 @@
+.menu {
+  background-color: var(--bg-bar);
+  display: flex;
+  padding: 24px 16px;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.btn {
+  background-color: #0000;
+  border: 0;
+  /* width: 36px;
+  height: 36px; */
+}
+
+.menu_icon {
+  fill: var(--bg-icon--disable);
+  transition: fill .3s ease;
+}
+
+.menu_icon:hover {
+  fill: var(--bg-icon--active);
+}
+
+.menu_icon--profile {}
+
+.menu_icon--devices {}

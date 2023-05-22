@@ -1,3 +1,10 @@
 .App {
   text-align: center;
 }
+
+.window {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+
+}
