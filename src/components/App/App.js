@@ -4,6 +4,7 @@ import React from "react";
 import Auth from '../Auth/Auth';
 import Dashboard from '../Dashboard/Dashboard';
 import Menu from '../Menu/Menu';
+import Profile from '../Profile/Profile';
 
 class App extends React.Component {
   constructor(props) {
@@ -56,18 +57,18 @@ class App extends React.Component {
     if (this.state.auth && this.state.openSection === "dashboard") {
       return (
         <div className='window'>
-          <Menu onChangeWindow={this.onChangeWindow}/>
           <Dashboard
             authToken={this.state.authToken}
             onAuthTokenError={this.onAuthTokenError}
           />
+          <Menu onChangeWindow={this.onChangeWindow}/>
         </div>
       );
     } else if (this.state.auth && this.state.openSection === "profile") {
       return (
         <div className='window'>
+          <Profile/>
           <Menu onChangeWindow={this.onChangeWindow}/>
-          <p>Profile Board</p>
         </div>
       )
     } else {

@@ -19,8 +19,11 @@
 }
 
 .dashboard__device-event {
-    width: calc(var(--scale_index) * 4);
-    height: calc(var(--scale_index) * 4);
+    width: calc(var(--scale_index) * 5);
+    height: calc(var(--scale_index) * 5);
+    
+    min-width: 64px;
+    min-height: 64px;
 
     border-radius: 8px;
 
