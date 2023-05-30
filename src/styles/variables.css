@@ -12,6 +12,13 @@
     --color-card-about: #FFFFFFB2;
     
     --error-color: red;
+    --error-bg: rgba(255, 0, 0, 0.219);
+    --error-color-text: #fff;
+
+    --alert-color: #ffcc00;
+    --alert-bg: rgba(255, 204, 0, 0.219);
+    --alert-color-text: #fff;
+
     --input-color: #b9b9b9;
     
     --bg-btn-light: #B725A8;

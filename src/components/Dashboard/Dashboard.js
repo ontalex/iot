@@ -1,7 +1,9 @@
 import Device from "../Device/Device";
-import Menu from "../Menu/Menu";
+import "../../styles/variables.css";
+
 import "./Dashboard.css";
 import React from "react";
+
 
 class Dashboard extends React.Component {
     constructor(props) {
