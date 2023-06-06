@@ -1,9 +1,8 @@
-import Device from "../Device/Device";
+import Device from "../../components/Device/Device";
 import "../../styles/variables.css";
 
 import "./Dashboard.css";
 import React from "react";
-
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -88,11 +87,6 @@ class Dashboard extends React.Component {
         });
     }
 
-    // Очиститель кеш (авторизации)
-    rerunAuth() {
-        localStorage.clear();
-    }
-
     /*
     Отрисовщик списка устройств
   */
@@ -118,7 +112,7 @@ class Dashboard extends React.Component {
         if (this.state.loadingIotData) {
             // Загрузка
             return (<div className="dashboard__loader">
-                Loading...
+                <p>Загружаем...</p>
             </div>);
         } else if (this.state.iotDataError) {
             // Ошибка загрузки
@@ -138,7 +132,9 @@ class Dashboard extends React.Component {
             );
         } else if (this.state.iotData.devices.length === 0) {
             return (
-                <div className="dashboard_"></div>
+                <div className="dashboard_non">
+                    <p>У вас нету устройств</p>
+                </div>
             )
         }
 

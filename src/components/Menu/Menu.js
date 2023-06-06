@@ -8,10 +8,6 @@ import { ReactComponent as Profile } from "../../assets/profile.svg";
 
 export default class Menu extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   onChangeWindow(window) {
     this.props.onChangeWindow(window);
   }

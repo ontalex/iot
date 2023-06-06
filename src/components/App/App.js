@@ -2,9 +2,9 @@ import './App.css';
 import React from "react";
 
 import Auth from '../Auth/Auth';
-import Dashboard from '../Dashboard/Dashboard';
+import Dashboard from '../../pages/Dashboard/Dashboard';
 import Menu from '../Menu/Menu';
-import Profile from '../Profile/Profile';
+import Profile from '../../pages/Profile/Profile';
 
 class App extends React.Component {
   constructor(props) {

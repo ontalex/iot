@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
-:root {
+/* :root {
     --scale_index: calc(1vw + 1vh);
 
     --header-color: #E49EF6;
@@ -32,5 +32,42 @@
 
     --bg-profile: #ffffff;
     --bg-icon--disable: #A6A6A6;
+    --bg-icon--active: #eab3f8;
+} */
+
+:root {
+    --scale_index: calc(1vw + 1vh);
+
+    --header-color: #422d47;
+    --bg: #f7f5f5;
+    --bg-input: #f6f6f6;
+    --border-input: 2px solid #8B337D;
+    --font-color: #000000;
+    --color-card-header: #000000;
+    --color-card-about: #111111b2;
+    
+    --error-color: red;
+    --error-bg: rgba(255, 0, 0, 0.219);
+    --error-color-text: #ff0000;
+
+    --alert-color: #ffcc00;
+    --alert-bg: rgba(255, 204, 0, 0.219);
+    --alert-color-text: #ffcc00;
+
+    --input-color: #434242;
+    
+    --bg-btn-light: #B725A8;
+    --bg-btn-gray: #818181;
+    --color-btn-light: #fff;
+    --color-btn-gray: #ffffff;
+
+    --bg-btn-light--hover: #8a1d7f;
+    --bg-btn-gray--hover: #212121;
+
+    --bg-card: #e6e5e5;
+    --bg-bar: #e8e7e7;
+
+    --bg-profile: #070707;
+    --bg-icon--disable: #828282;
     --bg-icon--active: #eab3f8;
 }

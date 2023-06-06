@@ -54,11 +54,14 @@
 
 .auth__get-token {
     background: var(--bg-btn-gray);
+    color: var(--color-btn-gray);
     text-align: center;
 }
 
 .auth__save {
     background: var(--bg-btn-light);
+    color: var(--color-btn-light);
+    border: 0;
 }
 
 .auth__get-token:hover {

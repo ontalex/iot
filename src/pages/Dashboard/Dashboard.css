@@ -54,11 +54,21 @@
 }
 
 .dashboard__loader {
-    color: white;
+    padding: 20px;
+    color: var(--font-color);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard__loader p {
+    font-size: 18px;
+    font-family: sans-serif;
 }
 
 .dashboard__error {
-    padding: 24px;
+    padding: 20px;
 }
 
 .dashboard__error p {
