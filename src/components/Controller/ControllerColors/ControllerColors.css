@@ -1,0 +1,17 @@
+.controller_colors {
+  
+}
+
+.controller_box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 2em;
+}
+
+.controller_line {
+  height: 36px;
+  width: 100%;
+  border-radius: 4px;
+  align-self: center;
+}

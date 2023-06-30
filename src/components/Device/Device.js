@@ -12,6 +12,8 @@ class Device extends React.Component {
             room: this.getDeviceRoom(this.props.device),
             isOn: this.getDeviceStatus(this.props.device),
         };
+
+        this.onChoseDevice = this.onChoseDevice.bind(this);
     }
 
     onChangeDeviceStatus(device, stateDevice, index) {
@@ -101,6 +103,10 @@ class Device extends React.Component {
             });
     }
 
+    onChoseDevice() { // выбор устройства для просмотра
+        this.props.onChoseDevice(this.props.device);
+    }
+
     render() {
         return (
             <div className="device_card">
@@ -119,19 +125,15 @@ class Device extends React.Component {
                         {/* {this.state.isOn ? "Вык" : "Вкл"} */}
                     </button>
                 ) : (
-                    ""
+                    <button
+                        className={`dashboard__device-event dashboard__device-disable`}
+                    >
+                        {/* {this.state.isOn ? "Вык" : "Вкл"} */}
+                    </button>
                 )}
-                {/* <div className="dashboard__device-param">
-                    <b>Тип:</b>{" "}
-                    {this.props.device.type.replace("devices.types.", "")}
-                </div>
-                {this.state.room ? (
-                    <div className="dashboard__device-param">
-                        <b>Комната:</b> {this.state.room}
-                    </div>
-                ) : (
-                    ""
-                )} */}
+                <button onClick={this.onChoseDevice}>
+                    <span>INFO</span>
+                </button>
             </div>
         );
     }

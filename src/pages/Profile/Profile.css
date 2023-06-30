@@ -58,11 +58,11 @@
   border-radius: 12px;
   background-color: var(--bg-card);
   padding: 10px 16px;
+  color: var(--font-color);
 }
 
 .profile_key span {
   font-family: "Roboto", sans-serif;
-  color: var(--font-color);
 }
 
 .profile_line {

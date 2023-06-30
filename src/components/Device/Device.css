@@ -39,3 +39,7 @@
 .dashboard__device-off {
     background-color: red;
 }
+
+.dashboard__device-disable {
+    background-color: gray;
+}

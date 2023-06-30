@@ -14,11 +14,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
@@ -29,42 +24,71 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Documentation iot-dashboard-app
+
+Данную секцию документа можно считать сопровождающим материалом для приложения. Здесь описаны компоненты которые используются в проекте, а также функционал которым они располагают. 
+
+Описание компонентов включает в себя:
+* Краткий смысл компонента
+* Методы компонента
+
+Описание функций включает в себя: 
+* Наименование функции
+* Описание того, что функция делает
+* Возможность передачи этой функции другие компоненты
+
+## Component `App`
+
+Главный компонент отвечающий за отображение страниц-комонентов панели умного дома.
+
+* `onAuthTokenChange` (публичная) - Обработчик изменения токена в Auth, скрывает форму и запрашивает дашборд с устройствами;
+
+* `onAuthTokenError` (публичная) - Обработчик ошибки получения данных вследствии невалидной авторизации (code: 401);
+
+* `onChangeWindow` (публичная) - Функция переключения окна приложения. Передаваемая функция в компонент `Menu` для последующего вызова по кнопке-переключатилю окон.
+
+## Component `Auth`
+
+Компонент отвечающий за авторизацию пользователя, а также получение индивидуального токена доступа к устройсвам умного дома, согласно данным аккаунта Яндекс.
+
+* `onSave` (локальная) - Обработчик нажатия "сохранить". Записывает токен в localStorage.
+
+* `onChange` (локальная) - Обработчик измения токина в поле ввода. Сохранает данные в виде значения объекта-состояния.
+
+## Component `Device`
+
+Компонент отвечающий за отображение наименования устройства, а также кнопки отвечающие за включение и включения дальнего устройств, открытия подробной информации об этом устройстве.
+
+* `onChangeDeviceStatus` () - Обёртка для проброшенной функции внутрь компонента. Отвечаеющей за измение статуса включения и выключения устроства.
+* `getDeviceStatus` () - Получение статуса устройства.
+* `getDeviceRoom` () - Получение имени комнаты устроства.
+* `newJsonDeviseStatus` () - Возвращает JSON строку с состоянием активности устроства.
+* `onChangeStatusDevice` () - Изменяет объект состояня устройства и отправляет данные на сервер.
+* `onChoseDevice` () - Измение открытого контроллера устройства. Обновляет состояние открытого устровства в компоненте `Menu`
+
+## Component `Menu`
+
+Компонент отвечающий за переключения страниц приложения. Основная механика приключения страницы реализована за счет кнопок входящих в данный компонент.
+
+* `onChangeWindow` () - Обёртка для пробрасываемой функции изменения окна приложения.
+
+## Page `Dashboard`
+
+Компонент-страница отвечающий за показ зарегестрирвоанных устройств пользователя, а также панели управления для выбранного пользователем устройства.
+
+* `getIotData` () - Запрашивает данные умного дома из API.
+* `onGetIotDataError` () - Обработчик остальных ошибок запроса данных.
+* `onGetIotDataAuthError` () - Обёртка проброшеного обработчика ошибки получения данных вследствии невалидной авторизации (code: 401).
+* `onChangeDeviceStatus` () - измение статуса включения и выключения устроства.
+* `renderDashboard` () - Отрисовщик списка устройств умного дома.
+* `renderDevice` () - Отрисовщик пульта управления девайса.
+
+## Page `Profile`
+
+Компонент-страница отвечающая за показ пользователюего токен и панели выхода из аккаунта. Включает в себя список рекомендованных сервисов Яндекса.
+
+* `rerunAuth` () - Очистка кеш (выход из приложения)

@@ -1,0 +1,36 @@
+.controller {
+  background-color: var(--bg-card);
+  margin: 24px;
+  box-sizing: border-box;
+  border-radius: 8px;
+
+  max-width: 560px;
+
+  padding: 32px;
+}
+
+.controller__name {
+  color: var(--font-color);
+  font-family: var(--font), sans-serif;
+  font-size: 32px;
+  margin: 0;
+}
+
+.controller_states {
+
+}
+
+.controller_state {
+  font-family: var(--font), sans-serif;
+  color: rgba(250, 250, 250, .75);
+  font-size: calc(var(--index) * 2);
+}
+
+
+.controller_type {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+
+  margin: 0 16px;
+}
