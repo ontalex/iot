@@ -86,7 +86,7 @@ class Dashboard extends React.Component {
         console.log(device);
 
         this.setState({
-            choseDevice: device
+            choseDevice: this.state.choseDevice ? null : device
         });
     }
 
