@@ -1,26 +1,20 @@
 import React from "react";
 
+import "../../../styles/variables.css";
 import "./ControllerWhite.css";
 
 export default function ControllerWhite(props) {
     let { device, activity } = props;
 
     let variants = [
-        { name: "Огненный белый", value: 1500 },
-
-        { name: "Мягкий белый", value: 2700 },
-
-        { name: "Тёплый белый", value: 3400 },
-
-        { name: "Белый", value: 4500 },
-
-        { name: "Дневной белый", value: 5600 },
-
-        { name: "Холодный белый", value: 6500 },
-
-        { name: "Туманный белый", value: 7500 },
-
-        { name: "Небесный белый", value: 9000 },
+        { name: "Огненный белый", value: 1500, color: "#FFB057" },
+        { name: "Мягкий белый", value: 2700, color: "#FFB057" },
+        { name: "Тёплый белый", value: 3400, color: "#FFC885" },
+        { name: "Белый", value: 4500, color: "#FFDFB8" },
+        { name: "Дневной белый", value: 5600, color: "#F7D5A1" },
+        { name: "Холодный белый", value: 6500, color: "#F0F3FA" },
+        { name: "Туманный белый", value: 7500, color: "#F0F3FA" },
+        { name: "Небесный белый", value: 9000, color: "#F0F3FA" },
     ];
 
     let sendColor = (value) => {
@@ -71,7 +65,7 @@ export default function ControllerWhite(props) {
                     return (
                         <button
                             className="white_btn"
-                            style={{ backgroundColor: "wheat" }}
+                            style={{ backgroundColor: item.color }}
                             onClick={() => sendColor(item.value)}
                         >
                             <span>{item.name}</span>

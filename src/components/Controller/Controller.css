@@ -34,3 +34,29 @@
 
   margin: 0 16px;
 }
+
+.controller_btn {
+  background-color: #343434;
+  padding: 12px 42px;
+  border-radius: 8px;
+  border: 0;
+
+  color: white;
+  font-family: var(--font), sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+
+  box-sizing: border-box;
+
+  border: 2px solid #0000;
+
+  transition: border ease .4s;
+}
+
+.controller_btn:hover {
+  border: 2px solid #F2F2F299;
+} 
+
+.controller_btn--open {
+  border: 2px solid #F2F2F2
+}

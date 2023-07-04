@@ -108,6 +108,7 @@ class Dashboard extends React.Component {
     }
 
     renderDevice() { // Отрисовщик пульта управления устрйоством
+        console.log(this.state.choseDevice);
         return (
             <Controller device={this.state.choseDevice} />
         )

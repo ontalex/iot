@@ -3,6 +3,8 @@ import "./Device.css";
 
 import "../../styles/variables.css"
 
+import { ReactComponent as CogIcon } from "../../assets/cog.svg";
+
 class Device extends React.Component {
     constructor(props) {
         super(props);
@@ -115,9 +117,8 @@ class Device extends React.Component {
                 </div>
                 {this.props.device.capabilities.length ? (
                     <button
-                        className={`dashboard__device-event dashboard__device-${
-                            this.state.isOn ? "on" : "off"
-                        }`}
+                        className={`dashboard__device-event dashboard__device-${this.state.isOn ? "on" : "off"
+                            }`}
                         onClick={() =>
                             this.onChangeStatusDevice(this.props.device)
                         }
@@ -131,9 +132,9 @@ class Device extends React.Component {
                         {/* {this.state.isOn ? "Вык" : "Вкл"} */}
                     </button>
                 )}
-                <button onClick={this.onChoseDevice}>
-                    <span>INFO</span>
-                </button>
+                {this.props.device.type.includes("light") ? (<button className="dashboard__device-more" onClick={this.onChoseDevice}>
+                    <CogIcon className="dashboard__device-icon" />
+                </button>) : ""}
             </div>
         );
     }

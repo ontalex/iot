@@ -1,7 +1,8 @@
 .controller_white {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 16px;
+  margin: 32px 0
 }
 
 .white_btn {
@@ -10,4 +11,8 @@
 
   border-radius: 8px;
   border: 0px;
+
+  padding: 8px;
+
+  font-family: var(--font);
 }

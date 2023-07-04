@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Range, getTrackBackground } from "react-range";
 
+import "../../../styles/variables.css";
+import "./ControllerColors.css";
+
 export default function ControllerColors(props) {
     let { device, activity } = props;
 
@@ -122,7 +125,6 @@ export default function ControllerColors(props) {
                     display: "flex",
                     justifyContent: "center",
                     flexWrap: "wrap",
-                    margin: "2em",
                 }}
             >
                 <Range
@@ -202,7 +204,6 @@ export default function ControllerColors(props) {
                     display: "flex",
                     justifyContent: "center",
                     flexWrap: "wrap",
-                    margin: "2em",
                 }}
             >
                 <Range
@@ -282,7 +283,6 @@ export default function ControllerColors(props) {
                     display: "flex",
                     justifyContent: "center",
                     flexWrap: "wrap",
-                    margin: "2em",
                 }}
             >
                 <Range

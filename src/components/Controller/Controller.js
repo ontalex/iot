@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import "./Controller.css";
 import "../../styles/variables.css";
+import "./Controller.css";
 import ControllerColors from './ControllerColors/ControllerColors';
 import ControllerRange from './ControllerRange/ControllerRange';
 import ControllerWhite from './ControllerWhite/ControllerWhite';
@@ -36,10 +36,10 @@ export default function Controller(props) {
                       <div>
 
                         <div className='controller_type'>
-                          <button className='controller_btn controller_btn--open' onClick={() => setType("white")}>
+                          <button className={`controller_btn ${type === "white" ? "controller_btn--open" : ""}`} onClick={() => setType("white")}>
                             <span>Белый</span>
                           </button>
-                          <button className='controller_btn' onClick={() => setType("colors")}>
+                          <button className={`controller_btn ${type === "colors" ? "controller_btn--open" : ""}`} onClick={() => setType("colors")}>
                             <span>Цветной</span>
                           </button>
                         </div>
