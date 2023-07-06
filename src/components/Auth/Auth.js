@@ -1,7 +1,10 @@
 import "./Auth.css";
 import React from "react";
 
+import "../../styles/variables.css";
 import "./Auth.css";
+
+import ButtonTheme from "../ButtonTheme/ButtonTheme";
 
 class Auth extends React.Component {
     constructor(props) {
@@ -60,6 +63,7 @@ class Auth extends React.Component {
                         <span>Получить</span>
                     </a>
                 </div>
+                <ButtonTheme/>
             </div>
         );
     }

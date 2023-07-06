@@ -121,7 +121,7 @@ class Dashboard extends React.Component {
 
             // Загрузка
             return (
-                <div className="dashboard__loader">
+                <div className="dashboard__page dashboard__loader">
                     <p>Загружаем...</p>
                 </div>
             );
@@ -130,7 +130,7 @@ class Dashboard extends React.Component {
 
             // Ошибка загрузки
             return (
-                <div className="dashboard__error">
+                <div className="dashboard__page dashboard__error">
                     <p>Ошибка получения данных: {this.state.iotDataError}</p>
                     <button className="dashboard_rerun" onClick={this.rerunAuth}><span>Сброс</span></button>
                 </div>
@@ -150,7 +150,7 @@ class Dashboard extends React.Component {
 
             // Отсутствую устройства
             return (
-                <div className="dashboard__none">
+                <div className="dashboard__page dashboard__none">
                     <p>У вас нет устройств</p>
                 </div>
             )

@@ -1,5 +1,7 @@
 .profile  {
   padding: 20px;
+
+  background-color: var(--bg);
 }
 
 .profile_bar {

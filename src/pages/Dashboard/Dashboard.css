@@ -1,12 +1,11 @@
 @import url("../../styles/variables.css");
 
+.dashboard__page {
+    background-color: var(--bg);
+}
+
 .dashboard__devices {
     width: 100%;
-
-    /* display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 10px; */
     
     display: flex;
     flex-wrap: wrap;

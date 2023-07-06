@@ -50,7 +50,7 @@
 }
 
 .dashboard__device-more {
-    background-color: #2d2d2d;
+    background-color: var(--bg-btn-gray);
     padding: 10px;
     border-radius: 4px;
     border: 2px solid rgba(200, 200, 200, 0);
@@ -64,7 +64,7 @@
 }
 
 .dashboard__device-more:hover {
-    background-color: #3c3c3c;
+    background-color: var(--bg-btn-gray--hover);
     border: 2px solid rgba(200, 200, 200, 0.7);
 }
 

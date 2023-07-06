@@ -1,86 +1,72 @@
 import './App.css';
-import React from "react";
+import React, { useState } from "react";
 
 import Auth from '../Auth/Auth';
 import Dashboard from '../../pages/Dashboard/Dashboard';
 import Menu from '../Menu/Menu';
 import Profile from '../../pages/Profile/Profile';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+import { ThemeContext } from '../context';
+import "../../styles/variables.css";
 
-    let authToken = localStorage.authToken || '';
+function App() {
+  const [auth, setAuth] = useState(Boolean(localStorage.authToken || ''));
+  const [authToken, setAuthToken] = useState(localStorage.authToken || '');
+  const [authError, setAuthError] = useState(null);
+  const [openSection, setOpenSection] = useState("dashboard"); // "profile"
 
-    this.state = {
-      auth: Boolean(authToken),
-      authToken: authToken,
-      authError: null,
-      openSection: "dashboard" //or "profile"
-    };
-    
-    this.onAuthTokenChange = this.onAuthTokenChange.bind(this);
-    this.onAuthTokenError = this.onAuthTokenError.bind(this);
-    this.onChangeWindow = this.onChangeWindow.bind(this);
-  }
+  const [theme, setTheme] = useState("light");
 
-  /*
-    Обработчик изменения токена в Auth, скрывает форму и запрашивает дашборд с устройствами
-  */
-  onAuthTokenChange(token) {
-    this.setState({
-      authToken: token,
-      authError: null,
-      auth: true,
-    });
-  }
+  const onAuthTokenChange = (token) => {
+    setAuthToken(token);
+    setAuthError(null);
+    setAuth(true);
+  };
 
-  /*
-    Обработчик ошибки получения данных вследствии невалидной авторизации (code: 401)
-  */
-  onAuthTokenError(error) {
-    this.setState({
-      authError: error,
-      auth: false
-    });
-  }
+  const onAuthTokenError = (error) => {
+    setAuthError(error);
+    setAuth(false);
+  };
 
-  onChangeWindow(window) {
-    this.setState({
-      openSection: window
-    })
-
+  const onChangeWindow = (window) => {
+    setOpenSection(window);
     // TODO: Пробросить функцию до меню и использовать её по нажатию кнопки
+  };
+
+  let content = null;
+
+  if (auth && openSection === "dashboard") {
+    content = (
+      <>
+        <Dashboard
+          authToken={authToken}
+          onAuthTokenError={onAuthTokenError}
+        />
+        <Menu onChangeWindow={onChangeWindow} />
+      </>
+    );
+  } else if (auth && openSection === "profile") {
+    content = (
+      <>
+        <Profile />
+        <Menu onChangeWindow={onChangeWindow} />
+      </>
+    );
+  } else {
+    content = (
+      <Auth
+        authToken={authToken}
+        authError={authError}
+        onAuthTokenChange={onAuthTokenChange}
+      />
+    );
   }
 
-  render() {
-    if (this.state.auth && this.state.openSection === "dashboard") {
-      return (
-        <div className='window'>
-          <Dashboard
-            authToken={this.state.authToken}
-            onAuthTokenError={this.onAuthTokenError}
-          />
-          <Menu onChangeWindow={this.onChangeWindow}/>
-        </div>
-      );
-    } else if (this.state.auth && this.state.openSection === "profile") {
-      return (
-        <div className='window'>
-          <Profile/>
-          <Menu onChangeWindow={this.onChangeWindow}/>
-        </div>
-      )
-    } else {
-      return (
-        <Auth 
-          authToken={this.state.authToken}
-          authError={this.state.authError}
-          onAuthTokenChange={this.onAuthTokenChange}
-        />
-      );
-    }
-  }
+  return (
+    <ThemeContext.Provider value={{theme, setTheme}}>
+      <div className={`window window--${theme}`}>{content}</div>
+    </ThemeContext.Provider>
+  );
 }
 
 export default App;

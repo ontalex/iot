@@ -1,7 +1,6 @@
-@import url(../../styles/variables.css);
-
 .auth {
-    max-width: 400px;
+    min-width: 400px;
+    width: 100vw;
     height: 100vh;
     box-sizing: border-box;
 
@@ -14,6 +13,8 @@
     align-items: center;
 
     gap: 32px;
+
+    background-color: var(--bg);
 }
 
 .auth_header {
@@ -45,7 +46,6 @@
 .auth__get-token, .auth__save {
     border-radius: 8px;
     padding: 10px 14px;
-    color: var(--font-color);
     text-decoration: none;
 
     font-family: "Roboto", sans-serif;

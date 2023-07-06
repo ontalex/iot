@@ -5,23 +5,34 @@ import "../../styles/variables.css";
 
 import { ReactComponent as DevicesIcon } from "../../assets/devices.svg";
 import { ReactComponent as ProfileIcon } from "../../assets/profile.svg";
+import ButtonTheme from "../ButtonTheme/ButtonTheme";
 
-export default class Menu extends React.Component {
 
-  onChangeWindow(window) {
-    this.props.onChangeWindow(window);
-  }
+const Menu = ({ onChangeWindow }) => {
 
-  render() {
-    return (
-      <div className="menu">
-        <button className="btn" onClick={() => this.onChangeWindow("profile")}>
-          <ProfileIcon className="menu_icon menu_icon--profile"/>
-        </button>
-        <button className="btn" onClick={() => this.onChangeWindow("dashboard")}>
-          <DevicesIcon className="menu_icon menu_icon--devices"/>
-        </button>
-      </div>
-    )
-  }
-}
+  const handleClickProfile = () => {
+    onChangeWindow("profile");
+  };
+
+  const handleClickDashboard = () => {
+    onChangeWindow("dashboard");
+  };
+
+  return (
+    <div className="menu">
+
+      <button className="btn" onClick={handleClickProfile}>
+        <ProfileIcon className="menu_icon menu_icon--profile" />
+      </button>
+
+      <button className="btn" onClick={handleClickDashboard}>
+        <DevicesIcon className="menu_icon menu_icon--devices" />
+      </button>
+
+      <ButtonTheme/>
+
+    </div>
+  );
+};
+
+export default Menu;

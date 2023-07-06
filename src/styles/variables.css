@@ -23,6 +23,8 @@
     
     --bg-btn-light: #B725A8;
     --bg-btn-gray: #343434;
+    --color-btn-light: #fff;
+    --color-btn-gray: #ffffff;
 
     --bg-btn-light--hover: #8a1d7f;
     --bg-btn-gray--hover: #212121;
@@ -37,8 +39,7 @@
     --font: "Roboto";
 }
 
-/* :root {
-    --scale_index: calc(1vw + 1vh);
+.window--light {
 
     --header-color: #422d47;
     --bg: #f7f5f5;
@@ -64,7 +65,7 @@
     --color-btn-gray: #ffffff;
 
     --bg-btn-light--hover: #8a1d7f;
-    --bg-btn-gray--hover: #212121;
+    --bg-btn-gray--hover: #4a4a4a;
 
     --bg-card: #e6e5e5;
     --bg-bar: #e8e7e7;
@@ -73,5 +74,44 @@
     --bg-icon--disable: #828282;
     --bg-icon--active: #eab3f8;
 
-    --font: "Roboto";
-} */
+}
+
+.window--dark {
+    --header-color: #E49EF6;
+    --bg: #131313;
+    --bg-input: #202020;
+    --border-input: 2px solid #8B337D;
+    --font-color: #ffffff;
+    --color-card-header: #fff;
+    --color-card-about: #FFFFFFB2;
+    
+    --error-color: red;
+    --error-bg: rgba(255, 0, 0, 0.219);
+    --error-color-text: #fff;
+
+    --alert-color: #ffcc00;
+    --alert-bg: rgba(255, 204, 0, 0.219);
+    --alert-color-text: #fff;
+
+    --input-color: #b9b9b9;
+    
+    --bg-btn-light: #B725A8;
+    --bg-btn-gray: #343434;
+
+    --bg-btn-light--hover: #8a1d7f;
+    --bg-btn-gray--hover: #212121;
+
+    --bg-card: #1E1E1E;
+    --bg-bar: #1C1C1C;
+
+    --bg-profile: #ffffff;
+    --bg-icon--disable: #A6A6A6;
+    --bg-icon--active: #eab3f8;
+}
+
+.window * {
+    transition-property: background, background-color, opacity, color, border;
+    transition-delay: 0;
+    transition-duration: .3s;
+    transition-timing-function: ease-in;
+}
