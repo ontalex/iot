@@ -2,4 +2,12 @@
   background-color: #0000;
   border: 0;
   color: var(--font-color);
+  padding: 2px;
+
+  transition: color ease-in-out .5s;
+}
+
+.btn svg {
+  fill: var(--font-color);
+  transition: fill ease-in-out .5s;
 }
