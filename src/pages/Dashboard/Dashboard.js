@@ -100,6 +100,7 @@ class Dashboard extends React.Component {
                     iotData={this.state.iotData}
                     onChangeDeviceStatus={this.onChangeDeviceStatus}
                     onChoseDevice={this.onChoseDevice}
+                    key={device.id}
                 />
             );
         });
