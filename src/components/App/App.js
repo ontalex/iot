@@ -3,8 +3,9 @@ import React, { useState } from "react";
 
 import Auth from '../Auth/Auth';
 import Dashboard from '../../pages/Dashboard/Dashboard';
-import Menu from '../Menu/Menu';
 import Profile from '../../pages/Profile/Profile';
+import Activities from "../../pages/Activities/Activities";
+import Menu from '../Menu/Menu';
 
 import { ThemeContext } from '../context';
 import "../../styles/variables.css";
@@ -13,7 +14,7 @@ function App() {
   const [auth, setAuth] = useState(Boolean(localStorage.authToken || ''));
   const [authToken, setAuthToken] = useState(localStorage.authToken || '');
   const [authError, setAuthError] = useState(null);
-  const [openSection, setOpenSection] = useState("dashboard"); // "profile"
+  const [openSection, setOpenSection] = useState("dashboard"); // "profile" // "dashboard" // "activities"
 
   const [theme, setTheme] = useState("light");
 
@@ -38,20 +39,30 @@ function App() {
   if (auth && openSection === "dashboard") {
     content = (
       <>
+        <Menu onChangeWindow={onChangeWindow} />
         <Dashboard
           authToken={authToken}
           onAuthTokenError={onAuthTokenError}
         />
-        <Menu onChangeWindow={onChangeWindow} />
       </>
     );
   } else if (auth && openSection === "profile") {
     content = (
       <>
-        <Profile />
         <Menu onChangeWindow={onChangeWindow} />
+        <Profile />
       </>
     );
+  } else if (auth && openSection === "activities") {
+    content = (
+      <>
+        <Menu onChangeWindow={onChangeWindow} />
+        <Activities 
+          authToken={authToken} 
+          onAuthTokenError={onAuthTokenError} 
+          />
+      </>
+    )
   } else {
     content = (
       <Auth
@@ -63,7 +74,7 @@ function App() {
   }
 
   return (
-    <ThemeContext.Provider value={{theme, setTheme}}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       <div className={`window window--${theme}`}>{content}</div>
     </ThemeContext.Provider>
   );

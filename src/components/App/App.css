@@ -5,10 +5,12 @@
 .window {
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr max-content;
+  grid-template-columns: max-content 1fr;
   grid-template-rows: auto;
 
   box-sizing: border-box;
+
+  color: var(--font-color);
 }
 
 @media (max-width: 1000px) {
